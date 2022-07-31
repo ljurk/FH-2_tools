@@ -184,14 +184,14 @@ function makeSysExMappings( data, c ) {
 			data[c+2] = acc[j] + re;
 			data[c+3] = i + aco[j];
 			c += 4;
-			
+
 			map += 1;
 			if ( map >= 384 ) {
 				return data;
 			}
 		}
 	}
-	
+
 	for ( j=1; j<17; ++j ) {
 		var id = "arpeg" + j + "_";
 		for ( i = 0; i < arpControls.length; ++i ) {
@@ -206,7 +206,7 @@ function makeSysExMappings( data, c ) {
 			data[c+2] = 9 + re;
 			data[c+3] = (j-1)*8 + i;
 			c += 4;
-			
+
 			map += 1;
 			if ( map >= 384 ) {
 				return data;
@@ -225,7 +225,7 @@ function makeSysExMappings( data, c ) {
 			data[c+2] = 11 + re;
 			data[c+3] = (j-1)*8 + i;
 			c += 4;
-			
+
 			map += 1;
 			if ( map >= 384 ) {
 				return data;
@@ -244,7 +244,7 @@ function makeSysExMappings( data, c ) {
 			data[c+2] = 12 + re;
 			data[c+3] = (j-1)*8 + i;
 			c += 4;
-			
+
 			map += 1;
 			if ( map >= 384 ) {
 				return data;
@@ -266,7 +266,7 @@ function makeSysExMappings( data, c ) {
 			data[c+2] = 10 + re;
 			data[c+3] = (j-1)*8 + i;
 			c += 4;
-		
+
 			map += 1;
 			if ( map >= 384 ) {
 				return data;
@@ -284,7 +284,7 @@ function makeSysExMappings( data, c ) {
 				data[c+2] = 69 + re;
 				data[c+3] = 0;
 				c += 4;
-		
+
 				map += 1;
 				if ( map >= 384 ) {
 					return data;
@@ -301,7 +301,7 @@ function makeSysExMappings( data, c ) {
 				data[c+2] = 71 + re;
 				data[c+3] = 0;
 				c += 4;
-		
+
 				map += 1;
 				if ( map >= 384 ) {
 					return data;
@@ -318,7 +318,7 @@ function makeSysExMappings( data, c ) {
 				data[c+2] = 72 + re;
 				data[c+3] = 0;
 				c += 4;
-		
+
 				map += 1;
 				if ( map >= 384 ) {
 					return data;
@@ -335,7 +335,7 @@ function makeSysExMappings( data, c ) {
 				data[c+2] = 74 + re;
 				data[c+3] = 0;
 				c += 4;
-		
+
 				map += 1;
 				if ( map >= 384 ) {
 					return data;
@@ -352,16 +352,16 @@ function makeSysExMappings( data, c ) {
 				data[c+2] = 75 + re;
 				data[c+3] = 0;
 				c += 4;
-		
+
 				map += 1;
 				if ( map >= 384 ) {
 					return data;
 				}
 			}
 		}
-	
+
 	log( map + " mapping(s)" );
-	
+
 	for ( ; map<384; ++map ) {
 		data[c] = 0x7f;
 		c += 4;
@@ -417,7 +417,7 @@ function makeSysEx() {
 	var len = d.length
 	for ( var i = 0; i < len; ++i ) {
 		arr[i] = d[i];
-	} 
+	}
 	var c = len;
 	// version
 	arr[c] = 9;		 c += 1;
@@ -443,7 +443,7 @@ function makeSysEx() {
 	// output ranges
 	for ( var i = 1; i < 65; ++i ) {
 		arr[c] = document.getElementById( "rng_" + i ).value;		 c += 1;
-	} 
+	}
 	// mcvs
 	for ( var i = 0; i < 16; ++i ) {
 		arr = makeSysExMcv( arr, c, i+1 );
@@ -592,7 +592,7 @@ function makeSysEx() {
 	while ( ( c - len ) < 4096 ) {
 		arr[c] = 0;		 c += 1;
 	}
-	
+
 	// addendum
 	for ( var i = 1; i < 17; ++i ) {
 		var v = document.getElementById( "euc_output_" + i ).value;
@@ -616,7 +616,7 @@ function makeMsgSysEx() {
 	var str = ""
 	for ( var i = 0; i < len; ++i ) {
 		str += String.fromCharCode( d[i] );
-	} 
+	}
 	var text = "Hello!\nThis message\nwas sent from\nthe config tool.";
 	str += text;
 	str += String.fromCharCode( 0xF7 );
@@ -633,7 +633,7 @@ function dumpSysex( data, id, prefix ) {
 		if ( ( i & 0xf ) === 0xf ) {
 			h += "\n";
 		}
-	} 
+	}
 	document.getElementById( id ).value = h;
 }
 </script>
@@ -1099,7 +1099,7 @@ document.getElementById( "glb_triglen" ).value = 50;
 	for ( i = 1; i < 17; ++i ) {
 		var cl = ( i & 1 ) ? "b" : "a";
 		document.write( "<tr class=" + cl + "><th>" + i + "</th>" );
-		
+
 		var id = "mcv_enable_" + i;
 		document.write( "<td><label class='hidden' for='" + id + "'>Enable MIDI-CV converter " + i + "</label><input type='checkbox' id='" + id + "'></input></td>");
 		id = "mcv_ch_" + i;
@@ -1141,7 +1141,7 @@ document.getElementById( "glb_triglen" ).value = 50;
 		for ( k=0; k<9; ++k ) {
 			var param_label;
 
-			if (k == 0) 
+			if (k == 0)
 		{
 			param_label = "CV";
 		}
@@ -1293,9 +1293,9 @@ document.getElementById( "glb_triglen" ).value = 50;
 		id = "mcv_ZS_" + i;
 		document.write( "<td><label class='hidden' for='" + id + "'>Env Zero(Converter " + i + ")</label>");
 		document.write( "<input type='checkbox' id='" + id + "'></td>" );
-		
+
 		document.write( "</tr>" );
-		
+
 		changeType( i );
 	}
 </script>
@@ -1776,7 +1776,7 @@ param_label = "error: unknown parameter";
 		document.write( "<td class='tc'>Channel/CC</td><td class='tc'>Channel/CC</td>" );
 		document.write( "<th>Low</th><th>High</th>" );
 		document.write( "</tr>" );
-	
+
 		for ( i = 0; i < 8; ++i ) {
 			var cl = ( i & 1 ) ? "a" : "b";
 			document.write( "<tr class=" + cl + "><td>" + (i+1) + "</td>" );
@@ -1882,7 +1882,7 @@ param_label = "smoothing";
 					document.write( "</td>" );
 				}
 			}
-			
+
 			var gtid = "out_gt_" + out;
 			id = gtid + "_lo";
 			document.write( "<td><label class='hidden' for='" + id + "'>Gate level - low (Output " + (i + 1) + ")</label>" );
@@ -1892,10 +1892,10 @@ param_label = "smoothing";
 			document.write( "<input onchange='changeGateLevel(\"" + id + "\")' type='text' id='" + id + "' min=0 max=16383 size=5 type='number' value='16383'></td>" );
 
 			document.write( "</tr>" );
-			
+
 			changeLfoReset( out+1 );
 		}
-		
+
 		document.write( "</table>" );
 		if ( x > 0 ) {
 			showHide( "outs" + x + "_table", false );
@@ -2183,7 +2183,7 @@ function parseConfigDump( data ) {
 	// output ranges
 	for ( var i = 1; i < 65; ++i ) {
 		document.getElementById( "rng_" + i ).value = data[c]; c += 1;
-	} 
+	}
 	// mcvs
 	for ( var i = 0; i < 16; ++i ) {
 		parseMcv( data, c, i+1 );
